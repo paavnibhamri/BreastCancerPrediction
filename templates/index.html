@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Breast Cancer Detection Form</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f9f9;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #34495e;
+    }
+
+    form {
+      max-width: 1200px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    .form-group {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    .submit-btn {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    button {
+      background-color: #2ecc71;
+      border: none;
+      color: white;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #27ae60;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Breast Cancer Prediction Form</h2>
+  <form action="/predict" method="POST">
+    <div class="form-group">
+      <!-- All 30 Features -->
+      <div><label>radius_mean</label><input type="number" step="any" name="radius_mean" required></div>
+      <div><label>texture_mean</label><input type="number" step="any" name="texture_mean" required></div>
+      <div><label>perimeter_mean</label><input type="number" step="any" name="perimeter_mean" required></div>
+      <div><label>area_mean</label><input type="number" step="any" name="area_mean" required></div>
+      <div><label>smoothness_mean</label><input type="number" step="any" name="smoothness_mean" required></div>
+      <div><label>compactness_mean</label><input type="number" step="any" name="compactness_mean" required></div>
+      <div><label>concavity_mean</label><input type="number" step="any" name="concavity_mean" required></div>
+      <div><label>concave_points_mean</label><input type="number" step="any" name="concave_points_mean" required></div>
+      <div><label>symmetry_mean</label><input type="number" step="any" name="symmetry_mean" required></div>
+      <div><label>fractal_dimension_mean</label><input type="number" step="any" name="fractal_dimension_mean" required></div>
+
+      <div><label>radius_se</label><input type="number" step="any" name="radius_se" required></div>
+      <div><label>texture_se</label><input type="number" step="any" name="texture_se" required></div>
+      <div><label>perimeter_se</label><input type="number" step="any" name="perimeter_se" required></div>
+      <div><label>area_se</label><input type="number" step="any" name="area_se" required></div>
+      <div><label>smoothness_se</label><input type="number" step="any" name="smoothness_se" required></div>
+      <div><label>compactness_se</label><input type="number" step="any" name="compactness_se" required></div>
+      <div><label>concavity_se</label><input type="number" step="any" name="concavity_se" required></div>
+      <div><label>concave_points_se</label><input type="number" step="any" name="concave_points_se" required></div>
+      <div><label>symmetry_se</label><input type="number" step="any" name="symmetry_se" required></div>
+      <div><label>fractal_dimension_se</label><input type="number" step="any" name="fractal_dimension_se" required></div>
+
+      <div><label>radius_worst</label><input type="number" step="any" name="radius_worst" required></div>
+      <div><label>texture_worst</label><input type="number" step="any" name="texture_worst" required></div>
+      <div><label>perimeter_worst</label><input type="number" step="any" name="perimeter_worst" required></div>
+      <div><label>area_worst</label><input type="number" step="any" name="area_worst" required></div>
+      <div><label>smoothness_worst</label><input type="number" step="any" name="smoothness_worst" required></div>
+      <div><label>compactness_worst</label><input type="number" step="any" name="compactness_worst" required></div>
+      <div><label>concavity_worst</label><input type="number" step="any" name="concavity_worst" required></div>
+      <div><label>concave_points_worst</label><input type="number" step="any" name="concave_points_worst" required></div>
+      <div><label>symmetry_worst</label><input type="number" step="any" name="symmetry_worst" required></div>
+      <div><label>fractal_dimension_worst</label><input type="number" step="any" name="fractal_dimension_worst" required></div>
+    </div>
+
+    <div class="submit-btn">
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+  {% if prediction is defined %}
+  <div style="text-align:center; margin-top: 30px;">
+    <h3>Prediction: <span style="color: #e74c3c;">{{ prediction }}</span></h3>
+  </div>
+{% endif %}
+</body>
+</html>
